@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 02:11:35 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/15 23:40:53 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/17 03:54:58 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ static	size_t	check_border(t_data *arg)
 		if ((arg->map[i][0] != '1')
 			|| arg->map[i][arg->wid - 1] != '1')
 			return (1);
+		j = 0;
+		while (arg->map[i][j])
+		{
+			if (arg->map[0][j] != '1' || arg->map[arg->hei - 1][j] != '1')
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);

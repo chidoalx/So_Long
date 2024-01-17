@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:52 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/16 15:52:55 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:14:22 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**read_map(char *p)
 	char	**var;
 	char	*str;
 	int		fd;
-	int 	i;
+	int		i;
 
 	i = 0;
 	str = NULL;
