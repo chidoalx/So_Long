@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:58 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/15 22:08:43 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:15:28 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	set_param(t_data *args)
 	args->p_d = mlx_xpm_file_to_image(args->mlx, "./textures/P_d.xpm", &i, &i);
 	args->c = mlx_xpm_file_to_image(args->mlx, "./textures/C.xpm", &i, &i);
 	args->e = mlx_xpm_file_to_image(args->mlx, "./textures/E.xpm", &i, &i);
+	args->enemy = mlx_xpm_file_to_image(args->mlx, "./textures/enmy.xpm",
+			&i, &i);
 	args->e_o = mlx_xpm_file_to_image(args->mlx, "./textures/E_O.xpm",
 			&i, &i);
 }

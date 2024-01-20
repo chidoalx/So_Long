@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 05:43:32 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/15 17:05:36 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/19 23:19:17 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 #  define BUFFER_SIZE 1486969768
 # endif
 
+typedef struct s_enemy
+{
+	int	e_x;
+	int	e_y;
+}		t_enemy;
+
 typedef struct s_data
 {
 	void	*mlx;
@@ -39,7 +45,7 @@ typedef struct s_data
 	void	*p_l;
 	void	*p_u;
 	void	*p_d;
-	int		p_posision;
+	void	*enemy;
 	int		fd;
 	int		x;
 	int		y;
@@ -65,10 +71,11 @@ size_t	ft_strlen(char *s);
 int		key_press(int keycode, t_data *par);
 void	draw_map(t_data *arg);
 char	**read_map(char *p);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 int		check_map(t_data *arg);
+void	update_enemy_pos(t_enemy *enemy, int speed);
 
 #endif

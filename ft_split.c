@@ -6,13 +6,13 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 02:44:38 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/11 19:24:18 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:24:37 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	count_words(char const *s, char c)
+static int	count_words(char *s, char c)
 {
 	int	i;
 	int	cnt;
@@ -33,7 +33,7 @@ static int	count_words(char const *s, char c)
 	return (cnt);
 }
 
-static char	*ft_strndup(const char *s1, int n)
+static char	*ft_strndup(char *s1, int n)
 {
 	int		i;
 	char	*new;
@@ -67,7 +67,7 @@ static char	**free2d(char **arr, int index)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		index;
