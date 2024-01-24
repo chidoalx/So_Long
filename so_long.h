@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 05:43:32 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/19 23:19:17 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:44:25 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ typedef struct s_data
 	void	*c;
 	void	*e;
 	void	*e_o;
-	void	*p_r;
-	void	*p_l;
-	void	*p_u;
 	void	*p_d;
 	void	*enemy;
 	int		fd;
@@ -55,9 +52,10 @@ typedef struct s_data
 	int		e_y_p;
 	int		count_c;
 	int		move;
-	int		hei;
-	int		wid;
+	size_t		hei;
+	size_t		wid;
 	char	**map;
+	char	**cp_mp;
 }	t_data;
 
 void	set_param(t_data *args);
@@ -65,9 +63,7 @@ void	set_p(t_data *arg);
 char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(char *s);
 int		key_press(int keycode, t_data *par);
 void	draw_map(t_data *arg);
 char	**read_map(char *p);
@@ -77,5 +73,9 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 int		check_map(t_data *arg);
 void	update_enemy_pos(t_enemy *enemy, int speed);
+size_t	check_flood(t_data *arg);
+void	set_hei_and_wid(t_data *arg);
+size_t	check_0_and_C(t_data *arg);
+void    Win_exit(t_data *arg , int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 02:11:35 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/18 15:57:53 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:29:11 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static	size_t	check_border(t_data *arg)
 	return (0);
 }
 
-static	size_t	check_land(t_data *arg)
+static	size_t	check_characters(t_data *arg)
 {
 	size_t	i;
 	size_t	j;
@@ -62,7 +62,7 @@ static	size_t	check_land(t_data *arg)
 	return (0);
 }
 
-static	size_t	check_characters(t_data *arg)
+static	size_t	check_P_and_E(t_data *arg)
 {
 	size_t	i;
 	size_t	j;
@@ -109,13 +109,17 @@ static	size_t	check_linght(t_data *arg)
 int	check_map(t_data *arg)
 {
 	if (check_border(arg) == 1)
-		return (1);
-	else if (check_land(arg) == 1)
-		return (1);
+		return (ft_putstr_fd("check border", 1), 1);
 	else if (check_characters(arg) == 1)
-		return (1);
+		return (ft_putstr_fd("invalid character", 1), 1);
+	else if (check_P_and_E(arg) == 1)
+		return (ft_putstr_fd("check number of P or E", 1), 1);
+	else if (check_0_and_C(arg) == 1)
+		return (ft_putstr_fd("check number of 0 or C", 1), 1);
 	else if (check_linght(arg) == 1)
-		return (1);
+		return (ft_putstr_fd("check lenght", 1), 1);
+	else if (check_flood(arg) == 1)
+		return (ft_putstr_fd("check flood", 1), 1);
 	else
 		return (0);
 }

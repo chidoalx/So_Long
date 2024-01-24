@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:46 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/19 23:29:32 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:45:02 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static	void	move_up(t_data *data)
 {
-	if (data->map[data->y - 1][data->x] == 'E' && data->count_c == 0)
-		exit(0);
+	Win_exit(data, data->x, data->y - 1);
 	if (data->map[data->y - 1][data->x] != 'E')
 	{
 		if (data->map[data->y - 1][data->x] == 'C')
@@ -28,11 +27,11 @@ static	void	move_up(t_data *data)
 		data->y -= 1;
 		mlx_put_image_to_window(data->mlx, data->win, data->l, data->x * 50,
 			data->y * 50);
-		mlx_put_image_to_window(data->mlx, data->win, data->p_u, data->x * 50,
+		mlx_put_image_to_window(data->mlx, data->win, data->p_d, data->x * 50,
 			data->y * 50);
 		data->move += 1;
 		ft_putnbr_fd(data->move, 1);
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', 1);
 	}
 	if (data->count_c == 0)
 		mlx_put_image_to_window(data->mlx, data->win, data->e_o,
@@ -41,8 +40,7 @@ static	void	move_up(t_data *data)
 
 static	void	move_down(t_data *data)
 {
-	if (data->map[data->y + 1][data->x] == 'E' && data->count_c == 0)
-		exit(0);
+	Win_exit(data, data->x, data->y + 1);
 	if (data->map[data->y + 1][data->x] != 'E')
 	{
 		if (data->map[data->y + 1][data->x] == 'C')
@@ -59,7 +57,7 @@ static	void	move_down(t_data *data)
 			data->y * 50);
 		data->move += 1;
 		ft_putnbr_fd(data->move, 1);
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', 1);
 	}
 	if (data->count_c == 0)
 		mlx_put_image_to_window(data->mlx, data->win, data->e_o,
@@ -68,8 +66,7 @@ static	void	move_down(t_data *data)
 
 static	void	move_left(t_data *data)
 {
-	if (data->map[data->y][data->x - 1] == 'E' && data->count_c == 0)
-		exit(0);
+	Win_exit(data, data->x - 1, data->y);
 	if (data->map[data->y][data->x - 1] != 'E')
 	{
 		if (data->map[data->y][data->x - 1] == 'C')
@@ -82,11 +79,11 @@ static	void	move_left(t_data *data)
 		data->x -= 1;
 		mlx_put_image_to_window(data->mlx, data->win, data->l, data->x * 50,
 			data->y * 50);
-		mlx_put_image_to_window(data->mlx, data->win, data->p_l, data->x * 50,
+		mlx_put_image_to_window(data->mlx, data->win, data->p_d, data->x * 50,
 			data->y * 50);
 		data->move += 1;
 		ft_putnbr_fd(data->move, 1);
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', 1);
 	}
 	if (data->count_c == 0)
 		mlx_put_image_to_window(data->mlx, data->win, data->e_o,
@@ -95,8 +92,7 @@ static	void	move_left(t_data *data)
 
 static	void	move_right(t_data *data)
 {
-	if (data->map[data->y][data->x + 1] == 'E' && data->count_c == 0)
-		exit(0);
+	Win_exit(data, data->x + 1, data->y);
 	if (data->map[data->y][data->x + 1] != 'E')
 	{
 		if (data->map[data->y][data->x + 1] == 'C')
@@ -109,11 +105,11 @@ static	void	move_right(t_data *data)
 		data->x += 1;
 		mlx_put_image_to_window(data->mlx, data->win, data->l, data->x * 50,
 			data->y * 50);
-		mlx_put_image_to_window(data->mlx, data->win, data->p_r, data->x * 50,
+		mlx_put_image_to_window(data->mlx, data->win, data->p_d, data->x * 50,
 			data->y * 50);
 		data->move += 1;
 		ft_putnbr_fd(data->move, 1);
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', 1);
 	}
 	if (data->count_c == 0)
 		mlx_put_image_to_window(data->mlx, data->win, data->e_o,

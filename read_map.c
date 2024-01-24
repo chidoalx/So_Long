@@ -6,11 +6,22 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:52 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/18 16:12:29 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/22 03:53:20 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	set_hei_and_wid(t_data *arg)
+{
+	size_t	j;
+
+	j = 0;
+	arg->wid = ft_strlen(arg->map[j]);
+	while (arg->map[j])
+		j++;
+	arg->hei = j;
+}
 
 char	**read_map(char *p)
 {
