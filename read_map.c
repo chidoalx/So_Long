@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:52 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/22 03:53:20 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/26 22:37:58 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,29 @@ void	set_hei_and_wid(t_data *arg)
 	arg->hei = j;
 }
 
+static	void	check_empty_line(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\n' && (str[i + 1] == '\n' || str[i + 1] == '\0'))
+		{
+			ft_putstr_fd("invalid map", 1);
+			exit(1);
+		}
+		i++;
+	}
+}
+
 char	**read_map(char *p)
 {
 	char	*line;
 	char	**var;
 	char	*str;
 	int		fd;
-	int		i;
 
-	i = -1;
 	str = NULL;
 	fd = open(p, O_RDWR);
 	if (fd == -1)
@@ -45,11 +59,6 @@ char	**read_map(char *p)
 		free(line);
 		line = get_next_line(fd);
 	}
-	while (str[++i] != '\0')
-	{
-		if (str[i] == '\n' && (str[i + 1] == '\n' || str[i + 1] == '\0'))
-			exit(1);
-	}
-	var = ft_split(str, '\n');
-	return (free(str), var);
+	check_empty_line(str);
+	return (var = ft_split(str, '\n'), free(str), var);
 }

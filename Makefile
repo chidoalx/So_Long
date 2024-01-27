@@ -35,6 +35,8 @@ SRCS_BONNUS = $(BONUS_DIR)/so_long_bonus.c\
  $(BONUS_DIR)/parcing.c \
  $(BONUS_DIR)/flood_map.c \
  $(BONUS_DIR)/enemy_touch.c \
+ $(BONUS_DIR)/move_enemy.c \
+ $(BONUS_DIR)/count_move_e.c \
 
 OBJECTS = $(SRCS:.c=.o)
 
@@ -45,13 +47,13 @@ RM = rm -f
 all: $(NAME)
 
 %.o: %.c so_long.h
-	$(CC) -g -fsanitize=address $(CFLAGS) -c -o $@ $<
+	$(CC) -g $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJECTS)
-	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
+	$(CC) -g $(CFLAGS) $(OBJECTS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
 
 bonus: $(OBJECTS_BONNUS)
-	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
+	$(CC) -g $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	$(RM) $(OBJECTS) $(OBJECTS_BONNUS)

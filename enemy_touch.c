@@ -6,17 +6,17 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:55:45 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/24 18:44:11 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/25 00:15:20 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    Win_exit(t_data *arg , int x, int y)
+void	win_exit(t_data *arg, int x, int y)
 {
-    if (arg->map[y][x] == 'E' && arg->count_c == 0)
-    {
-        ft_putstr_fd("You Win", 1);
-        exit(0);
-    }
+	if (arg->map[y][x] == 'E' && arg->count_c == 0)
+	{
+		ft_putstr_fd("You Win", 1);
+		exit(0);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 05:43:32 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/24 18:44:25 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/26 22:43:00 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,28 @@ typedef struct s_enemy
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*win;
-	void	*w;
-	void	*l;
-	void	*c;
-	void	*e;
-	void	*e_o;
-	void	*p_d;
-	void	*enemy;
-	int		fd;
-	int		x;
-	int		y;
-	int		i;
-	int		j;
-	int		e_x_p;
-	int		e_y_p;
-	int		count_c;
-	int		move;
-	size_t		hei;
-	size_t		wid;
-	char	**map;
-	char	**cp_mp;
+	void		*mlx;
+	void		*win;
+	void		*w;
+	void		*l;
+	void		*c;
+	void		*e;
+	void		*e_o;
+	void		*p_d;
+	void		*enemy;
+	int			fd;
+	size_t		x;
+	size_t		y;
+	int			i;
+	int			j;
+	int			e_x_p;
+	int			e_y_p;
+	int			count_c;
+	int			move;
+	int			hei;
+	int			wid;
+	char		**map;
+	char		**cp_mp;
 }	t_data;
 
 void	set_param(t_data *args);
@@ -75,7 +75,7 @@ int		check_map(t_data *arg);
 void	update_enemy_pos(t_enemy *enemy, int speed);
 size_t	check_flood(t_data *arg);
 void	set_hei_and_wid(t_data *arg);
-size_t	check_0_and_C(t_data *arg);
-void    Win_exit(t_data *arg , int x, int y);
+size_t	check_0_and_c(t_data *arg);
+void	win_exit(t_data *arg, int x, int y);
 
 #endif

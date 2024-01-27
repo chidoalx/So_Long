@@ -6,13 +6,13 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:10:15 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/24 10:31:00 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/26 22:53:24 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	check_0_and_C(t_data *arg)
+size_t	check_0_and_c(t_data *arg)
 {
 	size_t	i;
 	size_t	j;
@@ -66,12 +66,14 @@ static	void	p_e_position(t_data *arg)
 		j++;
 	}
 }
-static void copy_map(t_data *arg)
+
+static	void	copy_map(t_data *arg)
 {
-	size_t i = 0;
-	size_t j;
-	
-	arg->cp_mp = (char**)malloc(sizeof(char *) * (arg->hei + 1));
+	int	i;
+	int	j;
+
+	i = 0;
+	arg->cp_mp = (char **)malloc(sizeof(char *) * (arg->hei + 1));
 	while (arg->map[i])
 	{
 		arg->cp_mp[i] = (char *)malloc((arg->wid + 1) * sizeof(char));
@@ -87,14 +89,14 @@ static void copy_map(t_data *arg)
 	arg->cp_mp[i] = NULL;
 }
 
-static	void	flood_fill(t_data* arg, size_t x, size_t y)
+static	void	flood_fill(t_data *arg, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= arg->wid || y >= arg->hei
-		|| arg->cp_mp[y][x] == '1'|| arg->cp_mp[y][x] == 'E')
+		|| arg->cp_mp[y][x] == '1' || arg->cp_mp[y][x] == 'E')
 	{
 		return ;
 	}
-	else 
+	else
 	{
 		arg->cp_mp[y][x] = '1';
 		flood_fill(arg, x + 1, y);
@@ -119,7 +121,8 @@ size_t	check_flood(t_data *arg)
 		j = 0;
 		while (arg->cp_mp[i][j])
 		{
-			if (arg->cp_mp[i][j] != '1' && arg->cp_mp[i][j] != 'E')
+			if (arg->cp_mp[i][j] != '1' && arg->cp_mp[i][j] != 'E'
+				&& arg->cp_mp[i][j] != '0')
 				return (1);
 			j++;
 		}

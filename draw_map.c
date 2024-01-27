@@ -6,13 +6,13 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:43:08 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/24 18:35:42 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/25 00:13:40 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- static void set_enemy(t_data *arg)
+static	void	set_enemy(t_data *arg)
 {
 	if (arg->map[arg->j][arg->i] == 'N')
 	{

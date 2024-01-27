@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:46 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/24 18:45:02 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/01/25 00:15:05 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	void	move_up(t_data *data)
 {
-	Win_exit(data, data->x, data->y - 1);
+	win_exit(data, data->x, data->y - 1);
 	if (data->map[data->y - 1][data->x] != 'E')
 	{
 		if (data->map[data->y - 1][data->x] == 'C')
@@ -40,7 +40,7 @@ static	void	move_up(t_data *data)
 
 static	void	move_down(t_data *data)
 {
-	Win_exit(data, data->x, data->y + 1);
+	win_exit(data, data->x, data->y + 1);
 	if (data->map[data->y + 1][data->x] != 'E')
 	{
 		if (data->map[data->y + 1][data->x] == 'C')
@@ -66,7 +66,7 @@ static	void	move_down(t_data *data)
 
 static	void	move_left(t_data *data)
 {
-	Win_exit(data, data->x - 1, data->y);
+	win_exit(data, data->x - 1, data->y);
 	if (data->map[data->y][data->x - 1] != 'E')
 	{
 		if (data->map[data->y][data->x - 1] == 'C')
@@ -92,7 +92,7 @@ static	void	move_left(t_data *data)
 
 static	void	move_right(t_data *data)
 {
-	Win_exit(data, data->x + 1, data->y);
+	win_exit(data, data->x + 1, data->y);
 	if (data->map[data->y][data->x + 1] != 'E')
 	{
 		if (data->map[data->y][data->x + 1] == 'C')
