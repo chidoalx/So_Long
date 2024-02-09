@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:54:18 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/26 22:55:44 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/09 11:48:23 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
+		if (ft_check_ber(av[1]) == 1)
+			exit(1);
 		par.mlx = mlx_init();
 		if (!par.mlx)
 			return (2);
 		set_param(&par);
 		par.map = read_map(av[1]);
 		if (!par.map)
-			return (free(par.map), ft_putstr_fd("invalid map", 2), 2);
+			return (free(par.map), ft_putstr_fd("Error\ninvalid map", 2), 2);
 		if (check_map(&par) == 1)
 			exit (1);
 		par.win = mlx_new_window(par.mlx, par.wid * 50, par.hei * 50, "mashle");

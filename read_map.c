@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:52 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/26 22:37:58 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/09 11:44:51 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	void	check_empty_line(char *str)
 	{
 		if (str[i] == '\n' && (str[i + 1] == '\n' || str[i + 1] == '\0'))
 		{
-			ft_putstr_fd("invalid map", 1);
+			ft_putstr_fd("Error\ninvalid map", 1);
 			exit(1);
 		}
 		i++;

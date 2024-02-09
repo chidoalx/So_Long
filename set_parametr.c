@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:42:58 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/24 18:58:59 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:44:36 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,16 @@ void	set_p(t_data *arg)
 	}
 }
 
+static void	check_imag_file(t_data *arg)
+{
+	if (!(arg->w) || !(arg->l) || !(arg->p_d) || !(arg->c)
+		|| !(arg->e) || !(arg->enemy) || !(arg->e_o))
+	{
+		ft_putstr_fd("check image path", 1);
+		exit (1);
+	}
+}
+
 void	set_param(t_data *args)
 {
 	int	i;
@@ -59,5 +69,6 @@ void	set_param(t_data *args)
 			&i, &i);
 	args->enemy = mlx_xpm_file_to_image(args->mlx, "./textures/enmy.xpm",
 			&i, &i);
+	check_imag_file(args);
 	args->cp_mp = NULL;
 }

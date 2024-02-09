@@ -6,36 +6,32 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:10:15 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/26 22:53:24 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/05 03:21:42 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	check_0_and_c(t_data *arg)
+size_t	check_c(t_data *arg)
 {
 	size_t	i;
 	size_t	j;
-	int		n;
 	int		m;
 
 	i = 0;
-	n = 0;
 	m = 0;
 	while (arg->map[i])
 	{
 		j = 0;
 		while (arg->map[i][j])
 		{
-			if (arg->map[i][j] == '0')
-				n++;
 			if (arg->map[i][j] == 'C')
 				m++;
 			j++;
 		}
 		i++;
 	}
-	if (m < 1 || n < 1)
+	if (m < 1)
 		return (1);
 	return (0);
 }
@@ -91,8 +87,7 @@ static	void	copy_map(t_data *arg)
 
 static	void	flood_fill(t_data *arg, int x, int y)
 {
-	if (x < 0 || y < 0 || x >= arg->wid || y >= arg->hei
-		|| arg->cp_mp[y][x] == '1' || arg->cp_mp[y][x] == 'E')
+	if (arg->cp_mp[y][x] == '1')
 	{
 		return ;
 	}
@@ -121,7 +116,7 @@ size_t	check_flood(t_data *arg)
 		j = 0;
 		while (arg->cp_mp[i][j])
 		{
-			if (arg->cp_mp[i][j] != '1' && arg->cp_mp[i][j] != 'E'
+			if (arg->cp_mp[i][j] != '1'
 				&& arg->cp_mp[i][j] != '0')
 				return (1);
 			j++;

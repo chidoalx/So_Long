@@ -1,4 +1,4 @@
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -19,7 +19,10 @@ SRCS = so_long.c \
 	get_next_line_utils.c \
 	parcing.c \
 	flood_map.c \
-	enemy_touch.c \
+	win_exit.c \
+	ft_strncmp.c \
+	ft_strrchr.c \
+	ft_check_ber.c
 
 SRCS_BONNUS = $(BONUS_DIR)/so_long_bonus.c\
  $(BONUS_DIR)/draw_map.c \
@@ -37,6 +40,7 @@ SRCS_BONNUS = $(BONUS_DIR)/so_long_bonus.c\
  $(BONUS_DIR)/enemy_touch.c \
  $(BONUS_DIR)/move_enemy.c \
  $(BONUS_DIR)/count_move_e.c \
+ $(BONUS_DIR)/check_map.c \
 
 OBJECTS = $(SRCS:.c=.o)
 
@@ -47,13 +51,13 @@ RM = rm -f
 all: $(NAME)
 
 %.o: %.c so_long.h
-	$(CC) -g $(CFLAGS) -c -o $@ $<
+	$(CC) -g -fsanitize=address $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJECTS)
-	$(CC) -g $(CFLAGS) $(OBJECTS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
+	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
 
 bonus: $(OBJECTS_BONNUS)
-	$(CC) -g $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
+	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	$(RM) $(OBJECTS) $(OBJECTS_BONNUS)

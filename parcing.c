@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 02:11:35 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/01/25 00:21:11 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:03:06 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,17 +109,17 @@ static	size_t	check_linght(t_data *arg)
 int	check_map(t_data *arg)
 {
 	if (check_border(arg) == 1)
-		return (ft_putstr_fd("check border", 1), 1);
+		return (ft_putstr_fd("Error\ncheck border", 1), 1);
 	else if (check_characters(arg) == 1)
-		return (ft_putstr_fd("invalid character", 1), 1);
+		return (ft_putstr_fd("Error\ninvalid character", 1), 1);
 	else if (check_p_and_e(arg) == 1)
-		return (ft_putstr_fd("check number of P or E", 1), 1);
-	else if (check_0_and_c(arg) == 1)
-		return (ft_putstr_fd("check number of 0 or C", 1), 1);
+		return (ft_putstr_fd("Error\ncheck number of P or E", 1), 1);
+	else if (check_c(arg) == 1)
+		return (ft_putstr_fd("Error\ncheck number of 0 or C", 1), 1);
 	else if (check_linght(arg) == 1)
-		return (ft_putstr_fd("check lenght", 1), 1);
+		return (ft_putstr_fd("Error\ncheck lenght", 1), 1);
 	else if (check_flood(arg) == 1)
-		return (ft_putstr_fd("check flood", 1), 1);
+		return (ft_putstr_fd("Error\ncheck flood", 1), 1);
 	else
 		return (0);
 }
