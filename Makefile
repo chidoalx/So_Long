@@ -50,14 +50,11 @@ RM = rm -f
 
 all: $(NAME)
 
-%.o: %.c so_long.h
-	$(CC) -g -fsanitize=address $(CFLAGS) -c -o $@ $<
+$(NAME): $(OBJECTS) so_long.h
+	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS) -o $@ -lmlx -lX11 -lXext -lm
 
-$(NAME): $(OBJECTS)
-	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
-
-bonus: $(OBJECTS_BONNUS)
-	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
+bonus: $(OBJECTS_BONNUS) $(BONUS_DIR)/so_long_bonus.h
+	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -lX11 -lXext -lm
 
 clean:
 	$(RM) $(OBJECTS) $(OBJECTS_BONNUS)

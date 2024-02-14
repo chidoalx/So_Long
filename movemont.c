@@ -118,22 +118,22 @@ static	void	move_right(t_data *data)
 
 int	key_press(int keycode, t_data *par)
 {
-	if (keycode == 13 || keycode == 126)
+	if (keycode ==  65362 || keycode == 122)
 	{
 		if (par->map[par->y - 1][par->x] != '1')
 			move_up(par);
 	}
-	else if (keycode == 1 || keycode == 125)
+	else if (keycode == 65364 || keycode == 115)
 	{
 		if (par->map[par->y + 1][par->x] != '1')
 			move_down(par);
 	}
-	else if (keycode == 2 || keycode == 124)
+	else if (keycode == 65363 || keycode == 100)
 	{
 		if (par->map[par->y][par->x + 1] != '1')
 			move_right(par);
 	}
-	else if (keycode == 0 || keycode == 123)
+	else if (keycode == 65361 || keycode == 113)
 	{
 		if (par->map[par->y][par->x - 1] != '1')
 			move_left(par);
