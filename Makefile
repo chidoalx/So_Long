@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = so_long
 
-BONUS_DIR = so_long_bonus
+BONUS_DIR = bonus
 
 SRCS = so_long.c \
 	draw_map.c \
