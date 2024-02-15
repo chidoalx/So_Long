@@ -71,7 +71,7 @@ static	void	copy_map(t_data *arg)
 
 static	void	flood_fill(t_data *arg, size_t x, size_t y)
 {
-	if (arg->cp_mp[y][x] == '1')
+	if (arg->cp_mp[y][x] == '1' || arg->cp_mp[y][x] == 'E')
 		return ;
 	else
 	{
@@ -99,7 +99,7 @@ size_t	check_flood(t_data *arg)
 		while (arg->cp_mp[i][j])
 		{
 			if (arg->cp_mp[i][j] != '1' && arg->cp_mp[i][j] != '0'
-				&& arg->cp_mp[i][j] != 'N')
+				&& arg->cp_mp[i][j] != 'N' && arg->cp_mp[i][j] != 'E')
 				return (1);
 			j++;
 		}

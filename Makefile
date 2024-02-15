@@ -51,10 +51,10 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJECTS) so_long.h
-	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS) -o $@ -lmlx -lX11 -lXext -lm
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ -lmlx -lX11 -lXext -lm
 
 bonus: $(OBJECTS_BONNUS) $(BONUS_DIR)/so_long_bonus.h
-	$(CC) -g -fsanitize=address $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -lX11 -lXext -lm
+	$(CC) $(CFLAGS) $(OBJECTS_BONNUS) -o $(NAME) -lmlx -lX11 -lXext -lm
 
 clean:
 	$(RM) $(OBJECTS) $(OBJECTS_BONNUS)
